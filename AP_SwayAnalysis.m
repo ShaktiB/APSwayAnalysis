@@ -84,3 +84,33 @@ title('COPnet: AP Direction (slow)');
 xlabel('time (s)');
 ylabel('A/P');
 % saveas(gcf,'COPnetAPslow.jpg')
+
+%% EMG Analysis
+% the "evnelope" of the EMG signals.
+% Analyze both Sol. and TA muscles.
+
+gain = 1000; % for "sway_data"; change G to match the gain from your experiment
+
+% Convert units - express EMG in miliVolts (mV) 
+solFast = (sol_fast*1000)/gain;
+solSlow = (sol_slow*1000)/gain;
+
+taFast = (ta_fast*1000)/gain;
+taSLow = (ta_slow*1000)/gain;
+
+% Define time
+dlenFast = length(solFast);
+tFast = [1:dlenFast]/fs;
+
+dlenSlow = length(solSlow);
+tSlow = [1:dlenSlow]/fs;
+
+%% Filtering 
+%Define Envelope filter - Low-pass filter, Butterworth, 4th order, fc=2.5Hz
+
+fc2 = 2.5;
+Wn2 = fc2/(fs/2);
+ 
+[B2,A2] = butter(N,Wn2); % B2 = numerator and A2 = denominator 
+
+envlp_emg(i,:) = filtfilt(B,A,rect_emg(i,:)); %%%%%% CHANGE THIS%%%%%%
