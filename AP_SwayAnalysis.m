@@ -105,7 +105,15 @@ tFast = [1:dlenFast]/fs;
 dlenSlow = length(solSlow);
 tSlow = [1:dlenSlow]/fs;
 
-%% Filtering 
+%% EMG Rectification 
+
+rect_solFast = abs(solFast);
+rect_solSlow = abs(solSlow);
+
+rect_taFast = abs(taFast);
+rect_taSlow = abs(taSlow);
+
+%% Envelopping 
 %Define Envelope filter - Low-pass filter, Butterworth, 4th order, fc=2.5Hz
 
 fc2 = 2.5;
@@ -113,4 +121,13 @@ Wn2 = fc2/(fs/2);
  
 [B2,A2] = butter(N,Wn2); % B2 = numerator and A2 = denominator 
 
-envlp_emg(i,:) = filtfilt(B,A,rect_emg(i,:)); %%%%%% CHANGE THIS%%%%%%
+% Filtering soleus muscle data 
+filtSolFast = filtfilt(B2,A2,rect_solFast); % sol Fast 
+filtSolSlow = filtfilt(B2,A2,rect_solSlow); % sol Slow
+% Filtering tibiablis anterior muscle data
+filtTaFast = filtfilt(B2,A2,rect_taFast); % sol Fast 
+filtTaSlow = filtfilt(B2,A2,rect_taSlow); % sol Slow
+
+
+
+
