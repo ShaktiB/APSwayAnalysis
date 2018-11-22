@@ -17,7 +17,6 @@ fs=2000;
 % INPUT = 16 channels of raw forceplate data;
 % OUTPUT: xCOPL, yCOPL, xCOPR, yCOPR, Rv_R, Rv_L
 % Note: Rv_R and Rv_L are vertical forces of right and left forceplate 
-% Repeat for esEO_fp
 
 [xCOPL, yCOPL, xCOPR, yCOPR, Rv_R, Rv_L] = analyzeFP2(fp_fast);
 [xCOPL2, yCOPL2, xCOPR2, yCOPR2, Rv_R2, Rv_L2] = analyzeFP2(fp_slow);
