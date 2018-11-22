@@ -127,6 +127,44 @@ filtSolSlow = filtfilt(B2,A2,rect_solSlow); % sol Slow
 filtTaFast = filtfilt(B2,A2,rect_taFast); % sol Fast 
 filtTaSlow = filtfilt(B2,A2,rect_taSlow); % sol Slow
 
+%% Plotting 
+
+% COPnet Slow/Fast & Filtered EMG slow/fast -- TA/Sol Together 
+figure;
+subplot(2,1,1);
+plot(tFast,filtSolFast);
+hold on 
+plot(tFast,filtTaFast);
+hold off
+legend('Sol Fast','TA Fast');
+xlabel('Time (s)');
+ylabel('EMG: Sol & TA');
+title('Analysis of AP Sway with Muscle Activation','FontSize', 18)
+subplot(2,1,2);
+plot(tFast,yCOPfiltfast);
+xlabel('Time (s)');
+ylabel('COPnet: AP Direction');
+
+
+figure;
+subplot(2,1,1);
+plot(tSlow,filtSolSlow);
+hold on 
+plot(tSlow,filtTaSlow);
+hold off
+legend('Sol Slow','TA Slow');
+xlabel('Time (s)');
+ylabel('EMG: Sol & TA');
+title('Analysis of AP Sway with Muscle Activation','FontSize', 18)
+subplot(2,1,2);
+plot(tSlow,yCOPfiltslow);
+xlabel('Time (s)');
+ylabel('COPnet: AP Direction');
+
+% Soleus EMG slow– Raw, Rectified and Filtered
+% Soleus EMG fast– Raw, Rectified and Filtered
+
+figure;
 
 
 
