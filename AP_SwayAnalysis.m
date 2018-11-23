@@ -161,10 +161,88 @@ plot(tSlow,yCOPfiltslow);
 xlabel('Time (s)');
 ylabel('COPnet: AP Direction');
 
-% Soleus EMG slow– Raw, Rectified and Filtered
 % Soleus EMG fast– Raw, Rectified and Filtered
+% Soleus EMG slow– Raw, Rectified and Filtered
 
-figure;
+figure; % Sol Fast
+subplot(3,1,1);
+plot(tFast, solFast);
+title('Raw EMG: Soleus Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,2);
+plot(tFast, rect_solFast);
+title('Rectified EMG: Soleus Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,3);
+plot(tFast, filtSolFast);
+title('Filtered EMG: Soleus Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+figure; % Sol Slow
+subplot(3,1,1);
+plot(tSlow, solSlow);
+title('Raw EMG: Soleus Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,2);
+plot(tSlow, rect_solSlow);
+title('Rectified EMG: Soleus Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,3);
+plot(tSlow, filtSolSlow);
+title('Filtered EMG: Soleus Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+% TA EMG fast– Raw, Rectified and Filtered
+% TA EMG slow– Raw, Rectified and Filtered
+
+figure; % TA Fast 
+subplot(3,1,1);
+plot(tFast, taFast);
+title('Raw EMG: TA Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,2);
+plot(tFast, rect_taFast);
+title('Rectified EMG: TA Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,3);
+plot(tFast, filtTaFast);
+title('Filtered EMG: TA Muscle (Fast)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+figure; % TA Slow
+subplot(3,1,1);
+plot(tSlow, taSlow);
+title('Raw EMG: TA Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,2);
+plot(tSlow, rect_taSlow);
+title('Rectified EMG: TA Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
+subplot(3,1,3);
+plot(tSlow, filtTaSlow);
+title('Filtered EMG: TA Muscle (Slow)');
+xlabel('TIme (s)');
+ylabel('mV');
+
 
 
 
